@@ -7,6 +7,7 @@ import software.amazon.awscdk.services.ecs.Cluster;
 import software.constructs.Construct;
 
 public class JavaClusterStack extends Stack {
+    private Cluster cluster;
     public JavaClusterStack(final Construct scope, final String id, final Vpc vpc) {
         this(scope, id, null, vpc);
     }
@@ -17,5 +18,8 @@ public class JavaClusterStack extends Stack {
         Cluster cluster = Cluster.Builder.create(this, "JavaCluster")
                 .clusterName("cluster-javafood")
                 .vpc(vpc).build();
+    }
+    public Cluster getCluster() {
+        return cluster;
     }
 }
